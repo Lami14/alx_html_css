@@ -1,37 +1,69 @@
-/* Make <body> a flex container stacking children vertically */
+/* Flexbox layout as required */
 body {
   display: flex;
   flex-direction: column;
-  height: 100vh; /* full viewport height */
-  margin: 0; /* remove default margin */
+  min-height: 100vh;
 }
 
-/* Make <main> a flex container with horizontal layout */
 main {
   display: flex;
+  flex: auto;
   flex-direction: row;
-  flex: auto; /* automatically grow/shrink */
-  height: auto;
-  width: auto;
 }
 
-/* <article> takes 2/3 of horizontal space */
 article {
   flex: 2;
-  overflow-y: auto; /* vertical scroll if content overflows */
+  overflow-y: auto;
   padding: 1em;
+  background-color: #fdfdfd;
+  color: #333;
 }
 
-/* <aside> takes 1/3 of horizontal space */
 aside {
   flex: 1;
-  overflow-y: auto; /* vertical scroll */
+  overflow-y: auto;
+  background-color: #f0f0f0;
   padding: 1em;
 }
 
-/* Optional styling for header and footer to distinguish them */
-header, footer {
-  background-color: #eee;
-  padding: 1em;
-  text-align: center;
+/* Custom styles */
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 1em 0;
 }
+
+header ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5em;
+  margin: 0;
+  padding: 0 1em;
+  align-items: center;
+}
+
+header li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header li.logo {
+  font-size: 2em;
+  margin-right: 1em;
+}
+
+/* Styling links in aside */
+aside a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 0.8em;
+}
+
+/* You can continue to customize fonts, colors, spacing */
