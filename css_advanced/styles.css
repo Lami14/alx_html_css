@@ -27,13 +27,16 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  outline-offset: 2px; /* for focus outline spacing */
 }
 
-.video-item:hover {
+.video-item:hover,
+.video-item:focus-visible {
   transform: translateY(-5px);
   box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+  outline: none;
 }
 
 .video-item img {
@@ -57,11 +60,8 @@
 }
 
 /* Responsive tweaks */
-@media (max-width: 600px) {
+@media (max-width: 650px) {
   .videos-grid {
     grid-template-columns: 1fr;
   }
 }
-
-
-    
