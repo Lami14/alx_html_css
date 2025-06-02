@@ -1,109 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Advanced CSS Project</title>
-    <link rel="stylesheet" href="styles/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Google Font (Source Sans Pro) -->
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
-  </head>
+.videos-list {
+  padding: 60px 0;
+  background-color: #fafafa;
+}
 
-  <body>
-    <!-- Header -->
-    <header class="header">
-      <div class="container">
-        <img src="images/logo.png" alt="Company Logo" class="logo" />
-        <nav class="nav">
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+.videos-list h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  color: #222;
+  font-weight: 700;
+}
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container hero-container">
-        <div class="hero-text">
-          <h1>Design. Build. Launch.</h1>
-          <p>Turn your ideas into reality with modern CSS styling.</p>
-          <button class="btn-primary">Get Started</button>
-        </div>
-        <div class="hero-image">
-          <img src="images/hero-image.png" alt="Hero Illustration" />
-        </div>
-      </div>
-    </section>
+.videos-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
 
-    <!-- Features Section -->
-    <section class="features">
-      <div class="container">
-        <h2>Our Features</h2>
-        <div class="features-grid">
-          <div class="feature-item">
-            <img src="images/icon1.png" alt="Feature Icon 1" />
-            <h3>Responsive Design</h3>
-            <p>Adapts to any screen size and device perfectly.</p>
-          </div>
-          <div class="feature-item">
-            <img src="images/icon2.png" alt="Feature Icon 2" />
-            <h3>Modern UI</h3>
-            <p>Clean, simple, and attractive user interface layouts.</p>
-          </div>
-          <div class="feature-item">
-            <img src="images/icon3.png" alt="Feature Icon 3" />
-            <h3>Optimized Code</h3>
-            <p>Efficient and maintainable CSS and HTML structure.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+.video-item {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
 
-    <!-- Quote Section -->
-    <section class="quote">
-      <div class="container">
-        <blockquote>
-          "Design is not just what it looks like and feels like. Design is how it works."
-          <footer>– Steve Jobs</footer>
-        </blockquote>
-      </div>
-    </section>
+.video-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+}
 
-    <!-- Videos List Section -->
-    <section class="videos-list">
-      <div class="container">
-        <h2>Featured Videos</h2>
-        <ul class="videos-grid">
-          <li class="video-item">
-            <img src="images/video1-thumb.jpg" alt="Video 1 Thumbnail" />
-            <h3>How to Design with CSS</h3>
-            <p>Learn the basics of CSS styling in this beginner-friendly video.</p>
-          </li>
-          <li class="video-item">
-            <img src="images/video2-thumb.jpg" alt="Video 2 Thumbnail" />
-            <h3>Advanced Layouts</h3>
-            <p>Master CSS Grid and Flexbox to build responsive layouts.</p>
-          </li>
-          <li class="video-item">
-            <img src="images/video3-thumb.jpg" alt="Video 3 Thumbnail" />
-            <h3>Animations & Transitions</h3>
-            <p>Bring your website to life with smooth animations.</p>
-          </li>
-        </ul>
-      </div>
-    </section>
+.video-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
-    <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <p>&copy; 2025 Lamla Mhlana. All rights reserved.</p>
-      </div>
-    </footer>
-  </body>
-</html>
+.video-item h3 {
+  font-size: 1.25rem;
+  margin: 15px 15px 5px;
+  color: #333;
+  font-weight: 600;
+}
+
+.video-item p {
+  font-size: 1rem;
+  color: #666;
+  margin: 0 15px 15px;
+  flex-grow: 1;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .videos-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+    
