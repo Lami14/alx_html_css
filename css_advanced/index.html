@@ -2,99 +2,69 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Advanced CSS Project</title>
-    <link rel="stylesheet" href="styles.css" />
-    <!-- Google Fonts -->
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Font (Source Sans Pro) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
+
   <body>
     <!-- Header -->
     <header class="header">
       <div class="container">
-        <a href="#" class="logo">
-          <img src="images/logo.png" alt="Site Logo" />
-        </a>
+        <img src="images/logo.png" alt="Company Logo" class="logo" />
         <nav class="nav">
           <ul>
-            <li><a href="#home" class="nav-link">Home</a></li>
-            <li><a href="#features" class="nav-link">Features</a></li>
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero">
       <div class="container hero-container">
         <div class="hero-text">
-          <h1>Welcome to the Advanced CSS Project</h1>
-          <p>Replicating a beautiful design with semantic HTML and advanced CSS.</p>
+          <h1>Design. Build. Launch.</h1>
+          <p>Turn your ideas into reality with modern CSS styling.</p>
           <button class="btn-primary">Get Started</button>
         </div>
         <div class="hero-image">
-          <img src="images/hero-image.png" alt="Hero Image" />
+          <img src="images/hero-image.png" alt="Hero Illustration" />
         </div>
       </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="features">
+    <section class="features">
       <div class="container">
-        <h2>Features</h2>
+        <h2>Our Features</h2>
         <div class="features-grid">
-          <article class="feature-item">
-            <img src="images/icon1.png" alt="Feature 1 Icon" />
-            <h3>Feature One</h3>
-            <p>Detail about feature one that highlights its benefits.</p>
-          </article>
-          <article class="feature-item">
-            <img src="images/icon2.png" alt="Feature 2 Icon" />
-            <h3>Feature Two</h3>
-            <p>Detail about feature two that highlights its benefits.</p>
-          </article>
-          <article class="feature-item">
-            <img src="images/icon3.png" alt="Feature 3 Icon" />
-            <h3>Feature Three</h3>
-            <p>Detail about feature three that highlights its benefits.</p>
-          </article>
+          <div class="feature-item">
+            <img src="images/icon1.png" alt="Feature Icon 1" />
+            <h3>Responsive Design</h3>
+            <p>Adapts to any screen size and device perfectly.</p>
+          </div>
+          <div class="feature-item">
+            <img src="images/icon2.png" alt="Feature Icon 2" />
+            <h3>Modern UI</h3>
+            <p>Clean, simple, and attractive user interface layouts.</p>
+          </div>
+          <div class="feature-item">
+            <img src="images/icon3.png" alt="Feature Icon 3" />
+            <h3>Optimized Code</h3>
+            <p>Efficient and maintainable CSS and HTML structure.</p>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-      <div class="container">
-        <h2>About This Project</h2>
-        <p>
-          This project demonstrates advanced CSS skills by replicating a
-          professional design from Figma. It includes responsive layouts,
-          typography, and interaction styling.
-        </p>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-      <div class="container">
-        <h2>Contact Us</h2>
-        <form action="#" method="post" class="contact-form">
-          <label for="name">Name:</label><br />
-          <input type="text" id="name" name="name" required /><br />
-
-          <label for="email">Email:</label><br />
-          <input type="email" id="email" name="email" required /><br />
-
-          <label for="message">Message:</label><br />
-          <textarea id="message" name="message" rows="4" required></textarea><br />
-
-          <button type="submit" class="btn-primary">Send Message</button>
-        </form>
       </div>
     </section>
 
