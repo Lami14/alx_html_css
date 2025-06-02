@@ -1,125 +1,109 @@
-/* Reset some basics */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Advanced CSS Project</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Font (Source Sans Pro) -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
+  </head>
 
-body {
-  font-family: 'Source Sans Pro', sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #fff;
-}
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <img src="images/logo.png" alt="Company Logo" class="logo" />
+        <nav class="nav">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-/* Container */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-container">
+        <div class="hero-text">
+          <h1>Design. Build. Launch.</h1>
+          <p>Turn your ideas into reality with modern CSS styling.</p>
+          <button class="btn-primary">Get Started</button>
+        </div>
+        <div class="hero-image">
+          <img src="images/hero-image.png" alt="Hero Illustration" />
+        </div>
+      </div>
+    </section>
 
-/* Header */
-.header {
-  background-color: #ffffff;
-  padding: 20px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <h2>Our Features</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <img src="images/icon1.png" alt="Feature Icon 1" />
+            <h3>Responsive Design</h3>
+            <p>Adapts to any screen size and device perfectly.</p>
+          </div>
+          <div class="feature-item">
+            <img src="images/icon2.png" alt="Feature Icon 2" />
+            <h3>Modern UI</h3>
+            <p>Clean, simple, and attractive user interface layouts.</p>
+          </div>
+          <div class="feature-item">
+            <img src="images/icon3.png" alt="Feature Icon 3" />
+            <h3>Optimized Code</h3>
+            <p>Efficient and maintainable CSS and HTML structure.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-.logo {
-  height: 50px;
-}
+    <!-- Quote Section -->
+    <section class="quote">
+      <div class="container">
+        <blockquote>
+          "Design is not just what it looks like and feels like. Design is how it works."
+          <footer>– Steve Jobs</footer>
+        </blockquote>
+      </div>
+    </section>
 
-.nav ul {
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  align-items: center;
-}
+    <!-- Videos List Section -->
+    <section class="videos-list">
+      <div class="container">
+        <h2>Featured Videos</h2>
+        <ul class="videos-grid">
+          <li class="video-item">
+            <img src="images/video1-thumb.jpg" alt="Video 1 Thumbnail" />
+            <h3>How to Design with CSS</h3>
+            <p>Learn the basics of CSS styling in this beginner-friendly video.</p>
+          </li>
+          <li class="video-item">
+            <img src="images/video2-thumb.jpg" alt="Video 2 Thumbnail" />
+            <h3>Advanced Layouts</h3>
+            <p>Master CSS Grid and Flexbox to build responsive layouts.</p>
+          </li>
+          <li class="video-item">
+            <img src="images/video3-thumb.jpg" alt="Video 3 Thumbnail" />
+            <h3>Animations & Transitions</h3>
+            <p>Bring your website to life with smooth animations.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
 
-.nav a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: color 0.3s ease;
-}
-
-.nav a:hover {
-  color: #007BFF; /* Example primary blue accent */
-}
-
-/* Flex container for header */
-.header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* Hero Section */
-.hero {
-  padding: 80px 0;
-  background-color: #f9f9f9;
-}
-
-.hero-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-}
-
-.hero-text {
-  flex: 1;
-}
-
-.hero-text h1 {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 20px;
-  color: #222;
-}
-
-.hero-text p {
-  font-size: 1.25rem;
-  margin-bottom: 30px;
-  color: #555;
-}
-
-.btn-primary {
-  background-color: #007BFF; /* Primary button color */
-  color: #fff;
-  padding: 12px 30px;
-  border: none;
-  border-radius: 5px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: #0056b3;
-}
-
-/* Hero image */
-.hero-image img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero-container {
-    flex-direction: column;
-    text-align: center;
-  }
-  .hero-text, .hero-image {
-    flex: none;
-  }
-  .hero-text h1 {
-    font-size: 2.5rem;
-  }
-}
-
-
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 Lamla Mhlana. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
