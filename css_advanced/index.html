@@ -1,109 +1,795 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Advanced CSS Project</title>
-    <link rel="stylesheet" href="styles/styles.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Google Font (Source Sans Pro) -->
-    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet" />
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmileSchool - Learn to Smile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Variables & Global Styles */
+        :root {
+            --primary-color: #C271FF;
+            --secondary-color: #071629;
+            --white: #FFFFFF;
+            --light-gray: #D3D3D3;
+            --dark-gray: #8E8E8E;
+            --font-main: 'Source Sans Pro', sans-serif;
+        }
 
-  <body>
-    <!-- Header -->
-    <header class="header">
-      <div class="container">
-        <img src="images/logo.png" alt="Company Logo" class="logo" />
-        <nav class="nav">
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--secondary-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #a55ae0;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(194, 113, 255, 0.4);
+        }
+
+        /* Header Styles */
+        header {
+            background-color: var(--secondary-color);
+            padding: 25px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Banner Styles */
+        .banner {
+            background: linear-gradient(to right, #1D1C3F, #2C2B5C);
+            color: var(--white);
+            padding: 120px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 C50,100 50,0 100,100 L100,0 Z" fill="rgba(194, 113, 255, 0.1)"/></svg>');
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .banner-title {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .banner-title span {
+            color: var(--primary-color);
+        }
+
+        .banner-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .banner-cta {
+            margin-bottom: 60px;
+        }
+
+        .pros-container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        .pro-item {
+            text-align: center;
+        }
+
+        .pro-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .pro-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .pro-title {
+            color: var(--light-gray);
+            font-style: italic;
+        }
+
+        /* Quotes Section */
+        .quotes {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .quote-avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .quote-content {
+            text-align: left;
+        }
+
+        .quote-text {
+            font-size: 1.4rem;
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .quote-author {
+            font-weight: 700;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .quote-author-title {
+            font-style: italic;
+            opacity: 0.8;
+        }
+
+        /* Videos Section */
+        .videos {
+            padding: 100px 0;
+            background-color: #F9F9F9;
+        }
+
+        .videos-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+        }
+
+        .video-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            height: 180px;
+            background: linear-gradient(45deg, #8E2DE2, #4A00E0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 4rem;
+        }
+
+        .video-content {
+            padding: 20px;
+        }
+
+        .video-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .video-description {
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+        }
+
+        .video-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .author-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+        }
+
+        .author-name {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .rating {
+            display: flex;
+            gap: 5px;
+            margin-top: 10px;
+        }
+
+        .star {
+            color: #FFC107;
+        }
+
+        /* Membership Section */
+        .membership {
+            padding: 100px 0;
+            background: var(--secondary-color);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .membership-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .membership-card {
+            padding: 30px 20px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .membership-card:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .membership-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .membership-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .membership-desc {
+            color: var(--light-gray);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background-color: #F9F9F9;
+        }
+
+        .faq-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .faq-item {
+            margin-bottom: 30px;
+        }
+
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .faq-answer {
+            color: var(--dark-gray);
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo .logo-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+        }
+
+        .footer-logo .logo-text {
+            font-size: 1.8rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-link {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            color: var(--light-gray);
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 900px) {
+            .banner-title {
+                font-size: 2.8rem;
+            }
+            
+            .pros-container {
+                flex-wrap: wrap;
+            }
+            
+            .quote-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .quote-content {
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .banner {
+                padding: 80px 0 60px;
+            }
+            
+            .banner-title {
+                font-size: 2.2rem;
+            }
+            
+            .banner-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .banner-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .quote-text {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">S</div>
+                <div class="logo-text">SmileSchool</div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#">Courses</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div class="container hero-container">
-        <div class="hero-text">
-          <h1>Design. Build. Launch.</h1>
-          <p>Turn your ideas into reality with modern CSS styling.</p>
-          <button class="btn-primary">Get Started</button>
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="container banner-content">
+            <h1 class="banner-title">Learn to <span>Smile</span></h1>
+            <p class="banner-subtitle">Master the art of smiling with our professional courses and transform your personal and professional life.</p>
+            <div class="banner-cta">
+                <a href="#" class="btn">GET STARTED</a>
+            </div>
+            
+            <div class="pros-container">
+                <div class="pro-item">
+                    <div class="pro-avatar" style="background: linear-gradient(45deg, #FF416C, #FF4B2B);"></div>
+                    <h3 class="pro-name">Phillip Massey</h3>
+                    <p class="pro-title">Smile Expert</p>
+                </div>
+                <div class="pro-item">
+                    <div class="pro-avatar" style="background: linear-gradient(45deg, #614385, #516395);"></div>
+                    <h3 class="pro-name">Nannie Lawrence</h3>
+                    <p class="pro-title">Smile Trainer</p>
+                </div>
+                <div class="pro-item">
+                    <div class="pro-avatar" style="background: linear-gradient(45deg, #11998e, #38ef7d);"></div>
+                    <h3 class="pro-name">Bruce Walters</h3>
+                    <p class="pro-title">Smile Coach</p>
+                </div>
+                <div class="pro-item">
+                    <div class="pro-avatar" style="background: linear-gradient(45deg, #f46b45, #eea849);"></div>
+                    <h3 class="pro-name">Henry Hughes</h3>
+                    <p class="pro-title">Smile Specialist</p>
+                </div>
+            </div>
         </div>
-        <div class="hero-image">
-          <img src="images/hero-image.png" alt="Hero Illustration" />
-        </div>
-      </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
-      <div class="container">
-        <h2>Our Features</h2>
-        <div class="features-grid">
-          <div class="feature-item">
-            <img src="images/icon1.png" alt="Feature Icon 1" />
-            <h3>Responsive Design</h3>
-            <p>Adapts to any screen size and device perfectly.</p>
-          </div>
-          <div class="feature-item">
-            <img src="images/icon2.png" alt="Feature Icon 2" />
-            <h3>Modern UI</h3>
-            <p>Clean, simple, and attractive user interface layouts.</p>
-          </div>
-          <div class="feature-item">
-            <img src="images/icon3.png" alt="Feature Icon 3" />
-            <h3>Optimized Code</h3>
-            <p>Efficient and maintainable CSS and HTML structure.</p>
-          </div>
+    <!-- Quotes Section -->
+    <section class="quotes">
+        <div class="container">
+            <div class="quote-container">
+                <div class="quote-avatar" style="background: linear-gradient(45deg, #8E2DE2, #4A00E0);"></div>
+                <div class="quote-content">
+                    <blockquote class="quote-text">
+                        "Smiling is a powerful tool that can change your life. It not only makes you feel better but also influences those around you in a positive way."
+                    </blockquote>
+                    <p class="quote-author">Person Name</p>
+                    <p class="quote-author-title">Weather Presenter</p>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- Quote Section -->
-    <section class="quote">
-      <div class="container">
-        <blockquote>
-          "Design is not just what it looks like and feels like. Design is how it works."
-          <footer>– Steve Jobs</footer>
-        </blockquote>
-      </div>
+    <!-- Videos Section -->
+    <section class="videos">
+        <div class="container">
+            <h2 class="section-title">Most <span>popular</span> tutorials</h2>
+            
+            <div class="videos-container">
+                <!-- Video Card 1 -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <span>▶</span>
+                    </div>
+                    <div class="video-content">
+                        <h3 class="video-title">Diagonal Smile</h3>
+                        <p class="video-description">Learn how to perfect the charming diagonal smile that conveys confidence and approachability.</p>
+                        <div class="video-author">
+                            <div class="author-avatar"></div>
+                            <div class="author-name">Phillip Massey</div>
+                        </div>
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span>(8)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Card 2 -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <span>▶</span>
+                    </div>
+                    <div class="video-content">
+                        <h3 class="video-title">Sad Smile</h3>
+                        <p class="video-description">Master the art of the subtle sad smile that expresses empathy and understanding.</p>
+                        <div class="video-author">
+                            <div class="author-avatar"></div>
+                            <div class="author-name">Phillip Massey</div>
+                        </div>
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">☆</span>
+                            <span>(7)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Card 3 -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <span>▶</span>
+                    </div>
+                    <div class="video-content">
+                        <h3 class="video-title">Natural Smile</h3>
+                        <p class="video-description">Discover techniques for a natural, effortless smile that appears genuine and warm.</p>
+                        <div class="video-author">
+                            <div class="author-avatar"></div>
+                            <div class="author-name">Phillip Massey</div>
+                        </div>
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span>(9)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Video Card 4 -->
+                <div class="video-card">
+                    <div class="video-thumbnail">
+                        <span>▶</span>
+                    </div>
+                    <div class="video-content">
+                        <h3 class="video-title">Happy Smile</h3>
+                        <p class="video-description">Learn to radiate pure joy with a happy smile that lights up any room you enter.</p>
+                        <div class="video-author">
+                            <div class="author-avatar"></div>
+                            <div class="author-name">Phillip Massey</div>
+                        </div>
+                        <div class="rating">
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">★</span>
+                            <span class="star">☆</span>
+                            <span>(7.5)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Videos List Section -->
-    <section class="videos-list">
-      <div class="container">
-        <h2>Featured Videos</h2>
-        <ul class="videos-grid">
-          <li class="video-item">
-            <img src="images/video1-thumb.jpg" alt="Video 1 Thumbnail" />
-            <h3>How to Design with CSS</h3>
-            <p>Learn the basics of CSS styling in this beginner-friendly video.</p>
-          </li>
-          <li class="video-item">
-            <img src="images/video2-thumb.jpg" alt="Video 2 Thumbnail" />
-            <h3>Advanced Layouts</h3>
-            <p>Master CSS Grid and Flexbox to build responsive layouts.</p>
-          </li>
-          <li class="video-item">
-            <img src="images/video3-thumb.jpg" alt="Video 3 Thumbnail" />
-            <h3>Animations & Transitions</h3>
-            <p>Bring your website to life with smooth animations.</p>
-          </li>
-        </ul>
-      </div>
+    <!-- Membership Section -->
+    <section class="membership">
+        <div class="container">
+            <h2 class="section-title"><span>Free</span> membership</h2>
+            
+            <div class="membership-container">
+                <div class="membership-card">
+                    <div class="membership-icon">😊</div>
+                    <h3 class="membership-title">Basic</h3>
+                    <p class="membership-desc">Access to 5 basic smile tutorials</p>
+                </div>
+                
+                <div class="membership-card">
+                    <div class="membership-icon">😄</div>
+                    <h3 class="membership-title">Standard</h3>
+                    <p class="membership-desc">Full access to all standard courses</p>
+                </div>
+                
+                <div class="membership-card">
+                    <div class="membership-icon">🤩</div>
+                    <h3 class="membership-title">Premium</h3>
+                    <p class="membership-desc">Premium courses and 1:1 coaching</p>
+                </div>
+                
+                <div class="membership-card">
+                    <div class="membership-icon">😍</div>
+                    <h3 class="membership-title">Platinum</h3>
+                    <p class="membership-desc">All courses + personal smile analysis</p>
+                </div>
+            </div>
+            
+            <div class="membership-cta" style="margin-top: 50px;">
+                <a href="#" class="btn">REGISTER FOR FREE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq">
+        <div class="container">
+            <h2 class="section-title">F.A.Q.</h2>
+            
+            <div class="faq-container">
+                <div class="faq-column">
+                    <div class="faq-item">
+                        <h3 class="faq-question">How does this work?</h3>
+                        <p class="faq-answer">Our smile courses are structured with video tutorials, practical exercises, and personalized feedback. You'll progress through different levels of smiling techniques.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">How long does it take to master smiling?</h3>
+                        <p class="faq-answer">Most students see significant improvement within 2-4 weeks of consistent practice. Full mastery typically takes 2-3 months depending on your dedication.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-column">
+                    <div class="faq-item">
+                        <h3 class="faq-question">Do I need any special equipment?</h3>
+                        <p class="faq-answer">All you need is a mirror for practice! Our advanced courses may recommend a smartphone for recording your smile progress.</p>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <h3 class="faq-question">Can I really improve my smile?</h3>
+                        <p class="faq-answer">Absolutely! Smiling is a skill like any other. With proper guidance and practice, anyone can develop a more confident, authentic smile.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-      <div class="container">
-        <p>&copy; 2025 Lamla Mhlana. All rights reserved.</p>
-      </div>
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-left">
+                    <a href="#" class="footer-logo">
+                        <div class="logo-icon">S</div>
+                        <div class="logo-text">SmileSchool</div>
+                    </a>
+                    <div class="social-links">
+                        <a href="#" class="social-link">f</a>
+                        <a href="#" class="social-link">t</a>
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">ig</a>
+                    </div>
+                </div>
+                
+                <div class="footer-right">
+                    <p>&copy; 2023 SmileSchool. All rights reserved.</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>Made with ❤️ by SmileSchool Team</p>
+            </div>
+        </div>
     </footer>
-  </body>
+</body>
 </html>
+  
+    
