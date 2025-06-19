@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Headphones</title>
+    <link rel="stylesheet" href="0-styles.css" />
+    <link rel="icon" href="images/favicon.ico" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="nav">
+          <a href="#" class="logo">
+            <img src="images/logo_headphones.png" alt="Headphones Logo" />
+          </a>
+          <nav class="nav-links">
+            <a href="#">what we do</a>
+            <a href="#">our results</a>
+            <a href="#">contact us</a>
+          </nav>
+        </div>
+
+        <div class="hero">
+          <h1>Lorem ipsum dolor set amet lorem ipsum</h1>
+          <p>Lorem ipsum dolor set amet lorem ipsum dolor set</p>
+          <button class="cta">CALL TO ACTION</button>
+        </div>
+      </div>
+    </header>
+  </body>
+</html>
